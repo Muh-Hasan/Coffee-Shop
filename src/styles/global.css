@@ -4,5 +4,13 @@
 @tailwind utilities;
 
 * {
+  @apply p-0 m-0;
   font-family: "Poppins", sans-serif;
+}
+
+.bg-image-coffee{
+  background-image: url("/images/image-1.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; 
 }
