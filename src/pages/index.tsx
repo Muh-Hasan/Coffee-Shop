@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import Button from "../components/Button"
+import CoffeeForm from "../components/CoffeeForm"
 import Navbar from "../components/Layout/navbar"
 
 export default function Home() {
-  const [isOpen, setOpen] = useState<Boolean>(false)
   return (
     <div>
       <Navbar />
@@ -21,7 +21,7 @@ export default function Home() {
               </h4>
             </div>
             <div>
-              <Button text="Start Free Trial" backgroundColor="black" />
+              <Button text="Start Free Trial" backgroundColor="bg-black" />
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Home() {
             </div>
           </div>
           <div className="pt-8">
-            <Button text="Start Free Trial" backgroundColor="white" />
+            <Button text="Start Free Trial" backgroundColor="bg-white" />
           </div>
           <div className="pt-6">
             <p className="text-white text-sm">
@@ -113,17 +113,7 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <div className="w-52">
-          <div>
-            <img src="/images/decaf.png" />
-          </div>
-          <div>
-            <h2>decaf</h2>
-          </div>
-          <div>
-            <p> Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
-          </div>
-        </div>
+        <CoffeeForm />
       </div>
     </div>
   )

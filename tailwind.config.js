@@ -6,6 +6,7 @@ module.exports = {
       backgroundColor: {
         border: "#747474",
         hero: "#F06358",
+        form: "#FFE5CB"
       },
       textColor: {
         para: "#685959"
