@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react"
 
 interface Props {
-  setCoffeeType: React.Dispatch<React.SetStateAction<string>>
-  setQuantity: React.Dispatch<React.SetStateAction<number>>
+  setCoffeeType: (coffeeType: string) => void
+  setQuantity: (quantity: number) => void
   isSelected: boolean
   coffeeType: string
   description: string
@@ -20,45 +20,85 @@ const CoffeeType: FC<Props> = ({
   imageSrc,
 }) => {
   return (
-    <div
-      className={`text-center border-[1px] border-solid border-black cursor-pointer px-4 h-60 flex items-center ${
-        isSelected ? "bg-white" : "bg-transparent"
-      }`}
-      style={{ boxShadow: "0px 4px 12px rgba(171, 100, 62, 0.2)" }}
-    >
+    <>
       {!isSelected ? (
         <div
-          onClick={() => {
-            setCoffeeType(coffeeType)
-            setQuantity(0)
-          }}
+          className={`text-center border-[1px] border-solid border-black cursor-pointer h-60 w-48 px-4 flex ${
+            isSelected ? "bg-white" : "bg-transparent"
+          }`}
+          style={{ boxShadow: "0px 4px 12px rgba(171, 100, 62, 0.2)" }}
         >
-          <div>
-            <img src={`/images/${imageSrc}`} alt={coffeeType} />
-          </div>
-          <div>
-            <h2 className="uppercase">{coffeeType}</h2>
-          </div>
-          <div>
-            <p className="text-sm text-para">{description}</p>
+          <div
+            className="flex items-center "
+            onClick={() => {
+              setCoffeeType(coffeeType)
+              setQuantity(0)
+            }}
+          >
+            <div>
+              <div>
+                <img src={`/images/${imageSrc}`} alt={coffeeType} />
+              </div>
+              <div>
+                <h2 className="uppercase">{coffeeType}</h2>
+              </div>
+              <div>
+                <p className="text-sm text-para">{description}</p>
+              </div>
+            </div>
           </div>
         </div>
       ) : (
-        <div>
-          <div>
-            <h2 className="uppercase">{coffeeType}</h2>
-          </div>
-          <div className="mt-8">
-            <p className="text-sm text-para">How many 12oz bags?</p>
-          </div>
-          <div>
-            <button onClick={() => setQuantity(quantity + 1)}>+</button>
-            {quantity}
-            <button onClick={() => setQuantity(quantity - 1)}>-</button>
+        <div
+          className={`text-center border-[1px] border-solid border-black cursor-pointer h-60 w-56 flex justify-center bg-white`}
+          style={{ boxShadow: "0px 4px 12px rgba(171, 100, 62, 0.2)" }}
+        >
+          <div className="w-full">
+            <div className="relative h-full w-full">
+              <div className="pt-[30%]">
+                <div className="pb-10">
+                  <h2 className="uppercase">{coffeeType}</h2>
+                </div>
+                <div>
+                  <p className="text-sm text-para">How many 12oz bags?</p>
+                </div>
+              </div>
+              <div className="absolute bottom-0 w-full">
+                <div className="flex bg-[#F1D0AF] py-2 px-2 justify-between items-center">
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="h-8 w-8 border-none text-white bg-black font-medium text-lg"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-lg">{quantity}</p>
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (quantity > 1) {
+                          setQuantity(quantity - 1)
+                        } else {
+                          return quantity
+                        }
+                      }}
+                      className="h-8 w-8 border-none text-white bg-black font-medium text-lg "
+                    >
+                      -
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </>
   )
 }
 

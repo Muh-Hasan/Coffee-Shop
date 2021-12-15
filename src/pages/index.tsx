@@ -1,6 +1,7 @@
 import React from "react"
 import Button from "../components/Button"
 import CoffeeForm from "../components/CoffeeForm"
+import Footer from "../components/Layout/footer"
 import Navbar from "../components/Layout/navbar"
 
 export default function Home() {
@@ -115,6 +116,7 @@ export default function Home() {
       <div>
         <CoffeeForm />
       </div>
+      <Footer />
     </div>
   )
 }

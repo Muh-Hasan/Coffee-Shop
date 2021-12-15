@@ -34,8 +34,6 @@ let coffeeTypeObj = [
 ]
 
 const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
-  let [quantity, setQuantity] = useState(0)
-  let [coffeeType, setCoffeeType] = useState("")
 
   return (
     <div>
@@ -52,8 +50,8 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
           console.log(values)
           savedValues[1]({
             ...savedValues[0],
-            coffeeType: coffeeType,
-            quantity: quantity,
+            coffeeType: values.coffeeType,
+            quantity: values.quantity,
           })
           handleNext()
         }}
@@ -62,33 +60,46 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
           <Form>
             <div className="flex items-center gap-6 justify-center py-16 flex-wrap">
               {coffeeTypeObj.map((v, i) => {
-                const isSelected = v.type === coffeeType
+                const isSelected = v.type === formik.values.coffeeType
                 return (
                   <CoffeeType
                     coffeeType={v.type}
                     description={v.description}
                     imageSrc={v.image}
-                    setQuantity={setQuantity}
-                    quantity={quantity}
-                    setCoffeeType={setCoffeeType}
+                    setQuantity={(quantity: number) => {
+                      formik.setFieldValue("quantity", quantity)
+                    }}
+                    quantity={formik.values.quantity}
+                    setCoffeeType={(coffeeType: string) => {
+                      formik.setFieldValue("coffeeType", coffeeType)
+                    }}
                     isSelected={isSelected}
                     key={i}
                   />
                 )
               })}
             </div>
-            {coffeeType === "" ? (
-              <div className="text-sm text-red-600 mt-1">
+            {formik.values.coffeeType === "" ? (
+              <div className="text-sm text-red-600 mt-1 text-center pb-4">
                 {formik.errors.coffeeType}
               </div>
             ) : null}
-            {quantity < 1 ? (
-              <div className="text-sm text-red-600 mt-1">
+            {formik.values.quantity < 1 ? (
+              <div className="text-sm text-red-600 mt-1 text-center pb-4">
                 {formik.errors.quantity}
               </div>
             ) : null}
+            {console.log(formik.errors)}
+            {console.log(formik.values)}
             <div className="text-center">
-              <Button text="next" backgroundColor="bg-black" type="submit" />
+              <button
+                type="submit"
+                className={`h-12 w-44 capitalize bg-black text-white border-none cursor-pointer`}
+                style={{ boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.2)" }}
+                // onClick={() =>  handleNext()}
+              >
+                next
+              </button>
             </div>
           </Form>
         )}

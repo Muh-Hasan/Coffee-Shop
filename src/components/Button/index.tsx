@@ -3,13 +3,11 @@ import React, { FC } from "react"
 interface Props {
   text: string
   backgroundColor: "bg-black" | "bg-white"
-  type?: "submit"
 }
 
-const Button: FC<Props> = ({ text, backgroundColor, type }) => {
+const Button: FC<Props> = ({ text, backgroundColor }) => {
   return (
     <button
-    type={type}
       className={`h-12 w-44 capitalize ${backgroundColor} text-${
         backgroundColor === "bg-black" ? "white" : "black"
       } border-none cursor-pointer`}
