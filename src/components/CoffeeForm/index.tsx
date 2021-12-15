@@ -14,7 +14,7 @@ const getSteps = () => {
   return [
     "Select your preference",
     "How often should we send it?",
-    "How often should we send it?",
+    "Grind type",
   ]
 }
 
@@ -58,6 +58,21 @@ const CoffeeForm: FC = () => {
 
   return (
     <div className="min-h-screen bg-form">
+      <div>
+        {activeStep > 0 ? (
+          <div
+            className="flex items-center gap-2 py-6 pl-4 cursor-pointer"
+            onClick={() => handleBack()}
+          >
+            <div>
+              <img src="/images/rightArrow.png" alt="rightArrow" />
+            </div>
+            <div className="-mt-[5px]">
+              <p className="text-para">Back</p>
+            </div>
+          </div>
+        ) : null}
+      </div>
       <div className="flex justify-center items-center py-20">
         <div>
           <div className="text-center mb-4">
