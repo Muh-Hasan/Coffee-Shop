@@ -64,7 +64,7 @@ const CoffeeForm: FC = () => {
             <p className="text-para">{activeStep + 1} of 3 </p>
           </div>
           <div className="uppercase text-3xl mb-8 text-center">
-            <h2>{getSteps()[0]} </h2>
+            <h2>{getSteps()[activeStep]} </h2>
           </div>
           <div>{getStepContent(activeStep)}</div>
         </div>

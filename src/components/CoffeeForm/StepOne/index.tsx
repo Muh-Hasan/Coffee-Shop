@@ -89,14 +89,11 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
                 {formik.errors.quantity}
               </div>
             ) : null}
-            {console.log(formik.errors)}
-            {console.log(formik.values)}
             <div className="text-center">
               <button
                 type="submit"
                 className={`h-12 w-44 capitalize bg-black text-white border-none cursor-pointer`}
                 style={{ boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.2)" }}
-                // onClick={() =>  handleNext()}
               >
                 next
               </button>
