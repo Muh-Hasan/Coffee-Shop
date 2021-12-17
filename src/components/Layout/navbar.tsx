@@ -2,11 +2,9 @@ import React, { FC, KeyboardEvent, MouseEvent, useState } from "react"
 import { Link } from "gatsby"
 import { useBreakpoint } from "gatsby-plugin-breakpoints"
 import SwipeableDrawer from "@mui/material/SwipeableDrawer"
-import Button from "@mui/material/Button"
 import List from "@mui/material/List"
 import Divider from "@mui/material/Divider"
 import ListItem from "@mui/material/ListItem"
-import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
 
 interface NavObject {
@@ -89,7 +87,7 @@ const Navbar: FC = () => {
           </SwipeableDrawer>
         </>
       ) : null}
-      <div className="flex-grow text-center">
+      <div className="flex-grow isSm:text-center">
         <Link to="/">
           <img src="/images/logo.png" alt="logo" className="w-24 isSm:w-16" />
         </Link>

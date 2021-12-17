@@ -8,15 +8,21 @@
   font-family: "Poppins", sans-serif;
 }
 
-.bg-image-coffee{
+.bg-image-coffee {
   background-image: url("/images/image-1.png");
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
 }
 
-@media(max-width: 900px){
-.isLg\:w-11\/12 {
+@media (max-width: 900px) {
+  .isLg\:w-11\/12 {
     width: 91.666667% !important;
+  }
 }
+
+@media (max-width: 640px) {
+  .isSm\:pt-4 {
+    padding-top: 1rem !important;
+  }
 }
