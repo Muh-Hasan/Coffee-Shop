@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react"
+import Footer from "./footer"
+import Navbar from "./navbar"
 
-const Layout = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+const Layout = ({ children }) => {
+  return (
+    <div className="overflow-hidden">
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  )
 }
 
 export default Layout

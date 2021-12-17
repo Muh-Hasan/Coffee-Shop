@@ -6,11 +6,18 @@ module.exports = {
       backgroundColor: {
         border: "#747474",
         hero: "#F06358",
-        form: "#FFE5CB"
+        form: "#FFE5CB",
       },
       textColor: {
-        para: "#685959"
-      }
+        para: "#685959",
+      },
+      screens: {
+        isXs: { max: "480px" },
+        isSm: { max: "640px" },
+        isMd: { max: "778px" },
+        isLg: {max: "900px"},
+        isXl: { max: "1034px" },
+      },
     },
   },
   plugins: [],

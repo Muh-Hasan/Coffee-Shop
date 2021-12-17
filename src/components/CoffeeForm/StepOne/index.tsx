@@ -58,7 +58,7 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
       >
         {formik => (
           <Form>
-            <div className="flex items-center gap-6 justify-center py-16 flex-wrap">
+            <div className="flex items-center gap-6 justify-center py-16 flex-wrap isSm:px-8">
               {coffeeTypeObj.map((v, i) => {
                 const isSelected = v.type === formik.values.coffeeType
                 return (

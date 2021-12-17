@@ -33,7 +33,7 @@ const StepTwo: FC<Props> = ({ savedValues, handleNext, handleBack }) => {
       >
         {formik => (
           <Form>
-            <div className="flex items-center gap-6 justify-center py-16 flex-wrap">
+            <div className="flex items-center gap-6 justify-center py-16 flex-wrap isSm:px-8">
               {offenSendObj.map((v, i) => {
                 const isSelected = v === formik.values.offenSend
                 return (

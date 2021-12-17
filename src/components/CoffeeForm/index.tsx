@@ -73,13 +73,13 @@ const CoffeeForm: FC = () => {
           </div>
         ) : null}
       </div>
-      <div className="flex justify-center items-center py-20">
-        <div>
+      <div className="flex justify-center items-center py-16">
+        <div className="isSm:w-full">
           <div className="text-center mb-4">
             <p className="text-para">{activeStep + 1} of 3 </p>
           </div>
-          <div className="uppercase text-3xl mb-8 text-center">
-            <h2>{getSteps()[activeStep]} </h2>
+          <div className="uppercase text-3xl mb-8 text-center isSm:px-8">
+            <h2 className="isSm:text-4xl">{getSteps()[activeStep]} </h2>
           </div>
           <div>{getStepContent(activeStep)}</div>
         </div>

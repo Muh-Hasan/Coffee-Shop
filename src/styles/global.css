@@ -14,3 +14,9 @@
   background-size: cover;
   background-repeat: no-repeat; 
 }
+
+@media(max-width: 900px){
+.isLg\:w-11\/12 {
+    width: 91.666667% !important;
+}
+}

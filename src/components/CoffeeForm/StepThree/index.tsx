@@ -40,7 +40,7 @@ const StepThree: FC<Props> = ({ savedValues, handleBack }) => {
       >
         {formik => (
           <Form>
-            <div className="flex items-center gap-6 justify-center py-16 flex-wrap">
+            <div className="flex items-center gap-6 justify-center py-16 flex-wrap isSm:px-8">
               {grindTypeObj.map((v, i) => {
                 const isSelected = v.text === formik.values.grindType
                 return (
@@ -58,7 +58,7 @@ const StepThree: FC<Props> = ({ savedValues, handleBack }) => {
             </div>
             {formik.values.grindType !== "" ? (
               <>
-                <div className="flex flex-col gap-y-2 items-center pb-8">
+                <div className="flex flex-col gap-y-2 items-center pb-8 isSm:px-8 ">
                   <div className="flex w-full">
                     <div className="flex-grow">
                       <p className="text-para">
@@ -99,7 +99,7 @@ const StepThree: FC<Props> = ({ savedValues, handleBack }) => {
                       <p className="font-semibold uppercase">free</p>
                     </div>
                   </div>
-                  <div className="flex w-full py-2 border-y-[1px] border-x-0 border-[#685959]">
+                  <div className="flex w-full py-2 border-y-[1px] border-x-0 border-solid border-[#685959]">
                     <div className="flex-grow">
                       <p className="font-semibold">Today's Price</p>
                     </div>
@@ -110,6 +110,13 @@ const StepThree: FC<Props> = ({ savedValues, handleBack }) => {
                     </div>
                   </div>
                 </div>
+                  {/* <div className="w-1/2 my-0 mx-auto isSm:w-[90%] isSm:px-8 pb-8">
+                    <p className="text-para">
+                      Your 7-day free trial starts when coffee is delivered,
+                      then we will charge you <b>$60/mo</b> thereafter. You can
+                      cancel anytime.
+                    </p>
+                  </div> */}
                 <div className="text-center">
                   <button
                     type="submit"

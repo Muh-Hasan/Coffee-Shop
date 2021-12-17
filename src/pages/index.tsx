@@ -1,32 +1,32 @@
 import React from "react"
 import Button from "../components/Button"
 import CoffeeForm from "../components/CoffeeForm"
+import Layout from "../components/Layout"
 import Footer from "../components/Layout/footer"
 import Navbar from "../components/Layout/navbar"
 
 export default function Home() {
   return (
-    <div>
-      <Navbar />
+    <Layout>
       <div className="bg-hero min-h-[90vh] relative">
         <div className="flex items-center justify-center pt-24">
-          <div className="w-2/5 text-center">
+          <div className="w-2/5 isXl:w-1/2 isLg:w-11/12 text-center">
             <div className="">
-              <h2 className="font-bold text-6xl leading-normal">
+              <h2 className="font-bold text-6xl leading-normal isSm:text-5xl">
                 Lorem ipsum dolor amet invidunt.
               </h2>
             </div>
             <div className="my-4">
-              <h4 className="font-normal text-4xl leading-normal">
+              <h4 className="font-normal text-4xl leading-normal isSm:text-3xl">
                 Lorem ipsum dolor amet invidunt.
               </h4>
             </div>
-            <div>
+            <div className="pb-8">
               <Button text="Start Free Trial" backgroundColor="bg-black" />
             </div>
           </div>
         </div>
-        <div className="absolute right-0 bottom-0">
+        <div className="absolute right-0 bottom-0 isLg:static isLg:text-right overflow-hidden">
           <img src="/images/coffee-cup.png" alt="" className="w-96" />
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="pb-12">
             <div className="pb-8">
-              <h2 className="text-5xl font-bold text-white">
+              <h2 className="text-5xl isSm:text-4xl font-bold text-white">
                 7-day Free Trial
               </h2>
             </div>
@@ -97,7 +97,7 @@ export default function Home() {
                 <img src="/images/tickMark.png" alt="" className="w-full" />
               </div>
               <div>
-                <h4 className="text-2xl font-normal text-white">
+                <h4 className="text-2xl isSm:text-xl font-normal text-white">
                   Two 2oz bags of Coffee
                 </h4>
               </div>
@@ -116,7 +116,6 @@ export default function Home() {
       <div>
         <CoffeeForm />
       </div>
-      <Footer />
-    </div>
+    </Layout>
   )
 }
