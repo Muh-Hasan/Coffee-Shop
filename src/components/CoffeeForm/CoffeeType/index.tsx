@@ -67,7 +67,7 @@ const CoffeeType: FC<Props> = ({
                     <button
                       type="button"
                       onClick={() => {
-                        if (quantity > 1) {
+                        if (quantity > 0) {
                           setQuantity(quantity - 1)
                         } else {
                           return quantity

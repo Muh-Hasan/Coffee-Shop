@@ -57,7 +57,7 @@ const StepThree: FC<Props> = ({ savedValues, handleBack }) => {
               })}
             </div>
             {formik.values.grindType !== "" ? (
-              <>
+              <div className="w-1/2 my-0 mx-auto isSm:w-full">
                 <div className="flex flex-col gap-y-2 items-center pb-8 isSm:px-8 ">
                   <div className="flex w-full">
                     <div className="flex-grow">
@@ -110,13 +110,13 @@ const StepThree: FC<Props> = ({ savedValues, handleBack }) => {
                     </div>
                   </div>
                 </div>
-                  {/* <div className="w-1/2 my-0 mx-auto isSm:w-[90%] isSm:px-8 pb-8">
+                  <div className="my-0 mx-auto isSm:w-[90%] isSm:px-8 pb-8">
                     <p className="text-para">
                       Your 7-day free trial starts when coffee is delivered,
                       then we will charge you <b>$60/mo</b> thereafter. You can
                       cancel anytime.
                     </p>
-                  </div> */}
+                  </div>
                 <div className="text-center">
                   <button
                     type="submit"
@@ -126,7 +126,7 @@ const StepThree: FC<Props> = ({ savedValues, handleBack }) => {
                     start free trial
                   </button>
                 </div>
-              </>
+              </div>
             ) : null}
           </Form>
         )}

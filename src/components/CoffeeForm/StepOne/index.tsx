@@ -34,24 +34,21 @@ let coffeeTypeObj = [
 ]
 
 const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
-
   return (
     <div>
       <Formik
         initialValues={{
-          coffeeType: savedValues[0].coffeeType,
-          quantity: savedValues[0].quantity,
+          type: savedValues[0].type,
         }}
-        validationSchema={yup.object({
-          coffeeType: yup.string().required("Please Select Preference"),
-          quantity: yup.number().min(1, "Quantity cannot be less than 1"),
-        })}
+        // validationSchema={yup.object({
+        //   coffeeType: yup.string().required("Please Select Preference"),
+        //   quantity: yup.number().min(1, "Quantity cannot be less than 1"),
+        // })}
         onSubmit={values => {
           console.log(values)
           savedValues[1]({
             ...savedValues[0],
-            coffeeType: values.coffeeType,
-            quantity: values.quantity,
+            type: values.type,
           })
           handleNext()
         }}
@@ -60,18 +57,50 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
           <Form>
             <div className="flex items-center gap-6 justify-center py-16 flex-wrap isSm:px-8">
               {coffeeTypeObj.map((v, i) => {
-                const isSelected = v.type === formik.values.coffeeType
+                // console.log(formik.values.type)
+                const index = (formik.values.type || []).findIndex(
+                  elem => v.type === elem.coffeeType && elem.quantity !== 0
+                )
+                console.log(index)
+
+                const isSelected = index !== -1
                 return (
                   <CoffeeType
                     coffeeType={v.type}
                     description={v.description}
                     imageSrc={v.image}
                     setQuantity={(quantity: number) => {
-                      formik.setFieldValue("quantity", quantity)
+                      const idx = formik.values.type.findIndex(
+                        elm => elm.coffeeType === v.type
+                      )
+                      if (idx !== -1) {
+                        const value = formik.values.type
+                        if (value[idx].quantity === 0) {
+                          delete value[idx]
+                        } else {
+                          value[idx].quantity = quantity
+                          formik.setFieldValue("type", value)
+                        }
+                      }
                     }}
-                    quantity={formik.values.quantity}
+                    quantity={formik.values.type[index]?.quantity}
                     setCoffeeType={(coffeeType: string) => {
-                      formik.setFieldValue("coffeeType", coffeeType)
+                      let value = []
+                      if (
+                        (formik.values.type || []).findIndex(
+                          elem => v.type === elem.coffeeType
+                        ) !== -1
+                      ) {
+                        value = formik.values.type.filter(
+                          elem => elem.coffeeType !== v.type
+                        )
+                      } else {
+                        value = [
+                          ...formik.values.type,
+                          { coffeeType, quantity: 1 },
+                        ]
+                      }
+                      formik.setFieldValue("type", value)
                     }}
                     isSelected={isSelected}
                     key={i}
@@ -79,7 +108,7 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
                 )
               })}
             </div>
-            {formik.values.coffeeType === "" ? (
+            {/* {formik.values.coffeeType === "" ? (
               <div className="text-sm text-red-600 mt-1 text-center pb-4">
                 {formik.errors.coffeeType}
               </div>
@@ -88,7 +117,8 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
               <div className="text-sm text-red-600 mt-1 text-center pb-4">
                 {formik.errors.quantity}
               </div>
-            ) : null}
+            ) : null} */}
+            {console.log(formik.values.type)}
             <div className="text-center">
               <button
                 type="submit"

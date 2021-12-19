@@ -4,8 +4,7 @@ import StepThree from "./StepThree"
 import StepTwo from "./StepTwo"
 
 export interface IValues {
-  coffeeType: string
-  quantity: number
+  type: { coffeeType: string; quantity: number }[]
   offenSend: string
   grindType: string
 }
@@ -20,8 +19,7 @@ const getSteps = () => {
 
 const CoffeeForm: FC = () => {
   const savedValues = useState<IValues>({
-    coffeeType: "",
-    quantity: 0,
+    type: [],
     offenSend: "",
     grindType: "",
   })
