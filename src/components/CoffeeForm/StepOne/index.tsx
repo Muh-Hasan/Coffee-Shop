@@ -40,9 +40,6 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
         initialValues={{
           type: savedValues[0].type,
         }}
-        // validationSchema={yup.object({
-        //   type: yup.string().required("Please Select Preference"),
-        // })}
         onSubmit={values => {
           console.log(values)
           savedValues[1]({
@@ -94,10 +91,6 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
                           ...formik.values.type,
                           { coffeeType, quantity: 1 },
                         ]
-
-                        // value = formik.values.type.filter(
-                        //   elem => elem.coffeeType !== v.type
-                        // )
                       }
                       formik.setFieldValue("type", value)
                     }}
@@ -107,13 +100,6 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
                 )
               })}
             </div>
-            {console.log(formik.values.type)}
-            {/* {formik.values.type.length === 0 ? (
-              <div className="text-sm text-red-600 mt-1 text-center pb-4">
-                {formik.errors.type}
-              </div>
-            ) : null} */}
-
             <div className="text-center">
               <Button text="next" backgroundColor="bg-black" type="submit" />
             </div>
