@@ -7,6 +7,7 @@ module.exports = {
         border: "#747474",
         hero: "#F06358",
         form: "#FFE5CB",
+        secondary: "#77AFAC",
       },
       textColor: {
         para: "#685959",
@@ -15,7 +16,7 @@ module.exports = {
         isXs: { max: "480px" },
         isSm: { max: "640px" },
         isMd: { max: "778px" },
-        isLg: {max: "900px"},
+        isLg: { max: "900px" },
         isXl: { max: "1034px" },
       },
     },

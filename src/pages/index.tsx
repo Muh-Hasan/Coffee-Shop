@@ -98,7 +98,7 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="pb-12">
             <div className="pb-8">
-              <h2 className="text-5xl isSm:text-4xl font-bold text-white">
+              <h2 className="text-6xl isSm:text-3xl font-bold text-white">
                 7-day Free Trial
               </h2>
             </div>
@@ -107,7 +107,7 @@ export default function Home() {
                 <img src="/images/tickMark.png" alt="" className="w-full" />
               </div>
               <div>
-                <h4 className="text-2xl isSm:text-xl font-normal text-white">
+                <h4 className="text-3xl isSm:text-base font-normal text-white">
                   Two 2oz bags of Coffee
                 </h4>
               </div>
@@ -116,12 +116,17 @@ export default function Home() {
           <div className="pt-8">
             <Button text="Start Free Trial" backgroundColor="bg-white" />
           </div>
-          <div className="pt-6">
-            <p className="text-white text-sm">
+          <div className="pt-6 isSm:hidden">
+            <p className="text-white">
               You will be charged after <b> 7-days </b>and can cancel anytime
             </p>
           </div>
         </div>
+      </div>
+      <div className="text-center bg-secondary py-2">
+        <h4 className="text-2xl font-normal text-white isSm:text-xs">
+          You will be charged after <b>7-days</b> and can cancel anytime
+        </h4>
       </div>
       <div>
         <CoffeeForm />
