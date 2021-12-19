@@ -57,9 +57,8 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
             <div className="flex items-center gap-6 justify-center py-16 flex-wrap isSm:px-8 isXs:px-4">
               {coffeeTypeObj.map((v, i) => {
                 const index = (formik.values.type || []).findIndex(
-                  elem => v.type === elem.coffeeType && elem.quantity !== 0
+                  elem => v.type === elem.coffeeType && elem.quantity > 0
                 )
-                console.log(index)
 
                 const isSelected = index !== -1
                 return (
@@ -71,10 +70,12 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
                       const idx = formik.values.type.findIndex(
                         elm => elm.coffeeType === v.type
                       )
+
                       if (idx !== -1) {
-                        const value = formik.values.type
-                        if (value[idx].quantity === 0) {
-                          delete value[idx]
+                        let value = formik.values.type
+                        if (quantity < 1) {
+                          value = value.filter(e => e.coffeeType !== v.type)
+                          formik.setFieldValue("type", value)
                         } else {
                           value[idx].quantity = quantity
                           formik.setFieldValue("type", value)
@@ -87,16 +88,16 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
                       if (
                         (formik.values.type || []).findIndex(
                           elem => v.type === elem.coffeeType
-                        ) !== -1
+                        ) === -1
                       ) {
-                        value = formik.values.type.filter(
-                          elem => elem.coffeeType !== v.type
-                        )
-                      } else {
                         value = [
                           ...formik.values.type,
                           { coffeeType, quantity: 1 },
                         ]
+
+                        // value = formik.values.type.filter(
+                        //   elem => elem.coffeeType !== v.type
+                        // )
                       }
                       formik.setFieldValue("type", value)
                     }}
@@ -106,7 +107,7 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
                 )
               })}
             </div>
-
+            {console.log(formik.values.type)}
             {/* {formik.values.type.length === 0 ? (
               <div className="text-sm text-red-600 mt-1 text-center pb-4">
                 {formik.errors.type}

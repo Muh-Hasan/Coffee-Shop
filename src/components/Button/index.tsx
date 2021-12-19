@@ -6,7 +6,7 @@ interface Props {
   type: "submit" | "button"
 }
 
-const Button: FC<Props> = ({ text, backgroundColor, type = "button" }) => {
+const Button: FC<Props> = ({ text, backgroundColor, type }) => {
   return (
     <button
       className={`h-12 w-44 capitalize ${backgroundColor} text-${

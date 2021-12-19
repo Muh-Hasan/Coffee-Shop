@@ -25,6 +25,9 @@
   .isSm\:pt-4 {
     padding-top: 1rem !important;
   }
+  .bg-image-coffee {
+    background-position: 80%;
+  }
 }
 
 @media (max-width: 480px) {

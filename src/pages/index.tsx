@@ -22,7 +22,13 @@ export default function Home() {
               </h4>
             </div>
             <div className="pb-8">
-              <Button text="Start Free Trial" backgroundColor="bg-black" />
+              <a href="/#free-trial">
+                <Button
+                  text="Start Free Trial"
+                  backgroundColor="bg-black"
+                  type="button"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -114,7 +120,11 @@ export default function Home() {
             </div>
           </div>
           <div className="pt-8">
-            <Button text="Start Free Trial" backgroundColor="bg-white" />
+            <Button
+              text="Start Free Trial"
+              backgroundColor="bg-white"
+              type="button"
+            />
           </div>
           <div className="pt-6 isSm:hidden">
             <p className="text-white">
@@ -128,7 +138,7 @@ export default function Home() {
           You will be charged after <b>7-days</b> and can cancel anytime
         </h4>
       </div>
-      <div>
+      <div id="free-trial">
         <CoffeeForm />
       </div>
     </Layout>

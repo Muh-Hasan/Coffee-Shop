@@ -19,15 +19,15 @@ const CoffeeType: FC<Props> = ({
   quantity,
   imageSrc,
 }) => {
+  console.log(isSelected)
+
   return (
     <>
       {!isSelected ? (
         <div
           className={`text-center border-[1px] border-solid border-black cursor-pointer h-60 w-48 px-4 flex bg-transparent isSm:w-full isSm:justify-center`}
           style={{ boxShadow: "0px 4px 12px rgba(171, 100, 62, 0.2)" }}
-          onClick={() => {
-            setCoffeeType(coffeeType)
-          }}
+          onClick={() => setCoffeeType(coffeeType)}
         >
           <div className="flex items-center">
             <div>
@@ -63,13 +63,7 @@ const CoffeeType: FC<Props> = ({
                   <div>
                     <button
                       type="button"
-                      onClick={() => {
-                        if (quantity > 0) {
-                          setQuantity(quantity - 1)
-                        } else {
-                          return quantity
-                        }
-                      }}
+                      onClick={() => setQuantity(quantity - 1)}
                       className="h-8 w-8 border-none text-white bg-black font-medium text-lg cursor-pointer"
                     >
                       -
