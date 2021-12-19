@@ -12,37 +12,53 @@ const Footer = () => {
         <div className="flex justify-between flex-wrap isSm:flex-col isSm:gap-y-6">
           <div className="space-y-9 isSm:space-y-6">
             <div>
-              <p className="text-white cursor-pointer">About</p>
+              <p className="text-white cursor-pointer text-lg isSm:text-base">
+                About
+              </p>
             </div>
             <div>
-              <p className="text-white cursor-pointer">Featured Coffees</p>
+              <p className="text-white cursor-pointer text-lg isSm:text-base">
+                Featured Coffees
+              </p>
             </div>
             <div>
-              <p className="text-white cursor-pointer">Coffee Subscriptions</p>
-            </div>
-          </div>
-          <div className="space-y-9 isSm:space-y-6">
-            <div>
-              <p className="text-white cursor-pointer">Contact</p>
-            </div>
-            <div>
-              <p className="text-white cursor-pointer">Blog</p>
-            </div>
-            <div>
-              <p className="text-white cursor-pointer">Lorem Ipsum</p>
+              <p className="text-white cursor-pointer text-lg isSm:text-base">
+                Coffee Subscriptions
+              </p>
             </div>
           </div>
           <div className="space-y-9 isSm:space-y-6">
             <div>
-              <p className="text-white cursor-pointer">Terms & Privacy</p>
+              <p className="text-white cursor-pointer text-lg isSm:text-base">
+                Contact
+              </p>
             </div>
             <div>
-              <p className="text-white cursor-pointer">FAQs</p>
+              <p className="text-white cursor-pointer text-lg isSm:text-base">
+                Blog
+              </p>
+            </div>
+            <div>
+              <p className="text-white cursor-pointer text-lg isSm:text-base">
+                Lorem Ipsum
+              </p>
+            </div>
+          </div>
+          <div className="space-y-9 isSm:space-y-6">
+            <div>
+              <p className="text-white cursor-pointer text-lg isSm:text-base">
+                Terms & Privacy
+              </p>
+            </div>
+            <div>
+              <p className="text-white cursor-pointer text-lg isSm:text-base">
+                FAQs
+              </p>
             </div>
           </div>
           <div className="space-y-4 isXl:pt-10 isSm:pt-4 isSm:pb-6">
             <div>
-              <p className="text-white text-xl font-semibold">
+              <p className="text-white text-2xl isSm:text-xl font-bold">
                 Stay Caffeinated
               </p>
             </div>
@@ -54,7 +70,7 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <button className="h-[52px] w-24 bg-transparent border-[1px] border-white border-solid text-white capitalize">
+                <button className="h-[52px] w-24 bg-transparent border-[1px] border-white border-solid text-white capitalize cursor-pointer">
                   submit
                 </button>
               </div>
@@ -63,25 +79,25 @@ const Footer = () => {
         </div>
         {size.sm ? (
           <div className="pt-8">
-            <h4 className="text-white text-xl">Follow Us</h4>
+            <h4 className="text-white text-base font-bold">Follow Us</h4>
           </div>
         ) : null}
         <div className="flex items-center justify-center gap-4 pt-20 pb-12 isSm:pt-4 isSm:justify-start">
-          <div className="h-10 w-10 bg-form flex justify-center items-center cursor-pointer">
+          <div className="h-12 w-12 isSm:h-9 isSm:w-9 bg-form flex justify-center items-center cursor-pointer">
             <img src="/images/facebook.png" alt="" />
           </div>
-          <div className="h-10 w-10 bg-form flex justify-center items-center cursor-pointer">
+          <div className="h-12 w-12 isSm:h-9 isSm:w-9 bg-form flex justify-center items-center cursor-pointer">
             <img src="/images/twitter.png" alt="" />
           </div>
-          <div className="h-10 w-10 bg-form flex justify-center items-center cursor-pointer">
+          <div className="h-12 w-12 isSm:h-9 isSm:w-9 bg-form flex justify-center items-center cursor-pointer">
             <img src="/images/instagram.png" alt="" />
           </div>
-          <div className="h-10 w-10 bg-form flex justify-center items-center cursor-pointer">
+          <div className="h-12 w-12 isSm:h-9 isSm:w-9 bg-form flex justify-center items-center cursor-pointer">
             <img src="/images/youtube.png" alt="" />
           </div>
         </div>
         <div className="text-center">
-          <p className="text-para text-sm">
+          <p className="text-para text-sm isSm:text-xs">
             <i>Copyright 2021 Lorem Ipsum. All rights reserved.</i>
           </p>
         </div>
