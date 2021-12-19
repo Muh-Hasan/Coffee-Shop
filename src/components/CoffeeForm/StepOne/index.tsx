@@ -10,7 +10,7 @@ interface Props {
   handleNext: () => void
 }
 
-let coffeeTypeObj = [
+let coffeeTypeObj: { type: string; description: string; image: string }[] = [
   {
     type: "Light Roast",
     description: "Lorem ipsum dolor sit amet.",
@@ -41,8 +41,7 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
           type: savedValues[0].type,
         }}
         // validationSchema={yup.object({
-        //   coffeeType: yup.string().required("Please Select Preference"),
-        //   quantity: yup.number().min(1, "Quantity cannot be less than 1"),
+        //   type: yup.string().required("Please Select Preference"),
         // })}
         onSubmit={values => {
           console.log(values)
@@ -55,9 +54,8 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
       >
         {formik => (
           <Form>
-            <div className="flex items-center gap-6 justify-center py-16 flex-wrap isSm:px-8">
+            <div className="flex items-center gap-6 justify-center py-16 flex-wrap isSm:px-8 isXs:px-4">
               {coffeeTypeObj.map((v, i) => {
-                // console.log(formik.values.type)
                 const index = (formik.values.type || []).findIndex(
                   elem => v.type === elem.coffeeType && elem.quantity !== 0
                 )
@@ -108,25 +106,15 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
                 )
               })}
             </div>
-            {/* {formik.values.coffeeType === "" ? (
+
+            {/* {formik.values.type.length === 0 ? (
               <div className="text-sm text-red-600 mt-1 text-center pb-4">
-                {formik.errors.coffeeType}
-              </div>
-            ) : null}
-            {formik.values.quantity < 1 ? (
-              <div className="text-sm text-red-600 mt-1 text-center pb-4">
-                {formik.errors.quantity}
+                {formik.errors.type}
               </div>
             ) : null} */}
-            {console.log(formik.values.type)}
+
             <div className="text-center">
-              <button
-                type="submit"
-                className={`h-12 w-44 capitalize bg-black text-white border-none cursor-pointer`}
-                style={{ boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.2)" }}
-              >
-                next
-              </button>
+              <Button text="next" backgroundColor="bg-black" type="submit" />
             </div>
           </Form>
         )}

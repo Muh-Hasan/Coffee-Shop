@@ -25,14 +25,11 @@ const CoffeeType: FC<Props> = ({
         <div
           className={`text-center border-[1px] border-solid border-black cursor-pointer h-60 w-48 px-4 flex bg-transparent isSm:w-full isSm:justify-center`}
           style={{ boxShadow: "0px 4px 12px rgba(171, 100, 62, 0.2)" }}
+          onClick={() => {
+            setCoffeeType(coffeeType)
+          }}
         >
-          <div
-            className="flex items-center "
-            onClick={() => {
-              setCoffeeType(coffeeType)
-              setQuantity(0)
-            }}
-          >
+          <div className="flex items-center">
             <div>
               <div>
                 <img src={`/images/${imageSrc}`} alt={coffeeType} />
@@ -48,7 +45,7 @@ const CoffeeType: FC<Props> = ({
         </div>
       ) : (
         <div
-          className={`text-center border-[1px] border-solid border-black cursor-pointer h-60 w-56 flex justify-center bg-white isSm:w-full`}
+          className={`text-center border-[1px] border-solid border-black h-60 w-56 flex justify-center bg-white isSm:w-full`}
           style={{ boxShadow: "0px 4px 12px rgba(171, 100, 62, 0.2)" }}
         >
           <div className="w-full">
@@ -73,7 +70,7 @@ const CoffeeType: FC<Props> = ({
                           return quantity
                         }
                       }}
-                      className="h-8 w-8 border-none text-white bg-black font-medium text-lg "
+                      className="h-8 w-8 border-none text-white bg-black font-medium text-lg cursor-pointer"
                     >
                       -
                     </button>
@@ -85,7 +82,7 @@ const CoffeeType: FC<Props> = ({
                     <button
                       type="button"
                       onClick={() => setQuantity(quantity + 1)}
-                      className="h-8 w-8 border-none text-white bg-black font-medium text-lg"
+                      className="h-8 w-8 border-none text-white bg-black font-medium text-lg cursor-pointer"
                     >
                       +
                     </button>

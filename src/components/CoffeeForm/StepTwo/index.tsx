@@ -2,45 +2,54 @@ import React, { FC } from "react"
 import { Formik, Form } from "formik"
 import * as yup from "yup"
 import { IValues } from ".."
-import OffenSend from "../OffenSend"
+import GrindType from "../GrindType"
+import Button from "../../Button"
 
 interface Props {
   savedValues: [IValues, React.Dispatch<React.SetStateAction<IValues>>]
   handleNext: () => void
-  handleBack: () => void
 }
 
-let offenSendObj = ["Every week", "Every 2 weeks", "Every 4 weeks"]
+let grindTypeObj: { text: string; imageSrc: string }[] = [
+  {
+    text: "GROUND",
+    imageSrc: "ground.png",
+  },
+  {
+    text: "WHOLE BEAN",
+    imageSrc: "whole-bean.png",
+  },
+]
 
-const StepTwo: FC<Props> = ({ savedValues, handleNext, handleBack }) => {
+const StepTwo: FC<Props> = ({ savedValues, handleNext }) => {
   return (
     <div>
       <Formik
         initialValues={{
-          offenSend: savedValues[0].offenSend,
+          grindType: savedValues[0].grindType,
         }}
         validationSchema={yup.object({
-          offenSend: yup.string().required("How often should we send it?"),
+          grindType: yup.string().required("Grind Type"),
         })}
         onSubmit={values => {
-          console.log(values)
           savedValues[1]({
             ...savedValues[0],
-            offenSend: values.offenSend,
+            grindType: values.grindType,
           })
           handleNext()
         }}
       >
         {formik => (
           <Form>
-            <div className="flex items-center gap-6 justify-center py-16 flex-wrap isSm:px-8">
-              {offenSendObj.map((v, i) => {
-                const isSelected = v === formik.values.offenSend
+            <div className="flex items-center gap-6 justify-center py-16 flex-wrap isSm:px-8 isXs:px-4">
+              {grindTypeObj.map((v, i) => {
+                const isSelected = v.text === formik.values.grindType
                 return (
-                  <OffenSend
-                    text={v}
-                    setText={(offenSend: string) => {
-                      formik.setFieldValue("offenSend", offenSend)
+                  <GrindType
+                    text={v.text}
+                    imageSrc={v.imageSrc}
+                    setText={(grindType: string) => {
+                      formik.setFieldValue("grindType", grindType)
                     }}
                     isSelected={isSelected}
                     key={i}
@@ -48,19 +57,15 @@ const StepTwo: FC<Props> = ({ savedValues, handleNext, handleBack }) => {
                 )
               })}
             </div>
-            {formik.values.offenSend === "" ? (
+
+            {formik.values.grindType === "" ? (
               <div className="text-sm text-red-600 mt-1 text-center pb-4">
-                {formik.errors.offenSend}
+                {formik.errors.grindType}
               </div>
             ) : null}
+
             <div className="text-center">
-              <button
-                type="submit"
-                className={`h-12 w-44 capitalize bg-black text-white border-none cursor-pointer`}
-                style={{ boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.2)" }}
-              >
-                next
-              </button>
+              <Button text="next" backgroundColor="bg-black" type="submit" />
             </div>
           </Form>
         )}

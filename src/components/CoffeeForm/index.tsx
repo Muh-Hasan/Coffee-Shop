@@ -12,8 +12,8 @@ export interface IValues {
 const getSteps = () => {
   return [
     "Select your preference",
-    "How often should we send it?",
     "Grind type",
+    "How often should we send it?",
   ]
 }
 
@@ -40,46 +40,53 @@ const CoffeeForm: FC = () => {
       case 0:
         return <StepOne savedValues={savedValues} handleNext={handleNext} />
       case 1:
-        return (
-          <StepTwo
-            savedValues={savedValues}
-            handleNext={handleNext}
-            handleBack={handleBack}
-          />
-        )
+        return <StepTwo savedValues={savedValues} handleNext={handleNext} />
       case 2:
-        return <StepThree savedValues={savedValues} handleBack={handleBack} />
+        return <StepThree savedValues={savedValues} />
       default:
         return "ERROR"
     }
   }
 
   return (
-    <div className="min-h-screen bg-form">
-      <div>
+    <div
+      className={`min-h-screen flex items-center bg-form ${
+        activeStep === 2 ? "py-12" : ""
+      } isLgMax:py-0`}
+    >
+      <div className="w-full isLgMax:py-16">
         {activeStep > 0 ? (
           <div
-            className="flex items-center gap-2 py-6 pl-4 cursor-pointer"
+            className="flex items-center gap-2 pl-4 pb-6 cursor-pointer"
             onClick={() => handleBack()}
           >
             <div>
               <img src="/images/rightArrow.png" alt="rightArrow" />
             </div>
             <div className="-mt-[5px]">
-              <p className="text-para">Back</p>
+              <p className="text-para isSm:text-xs">Back</p>
             </div>
           </div>
         ) : null}
-      </div>
-      <div className="flex justify-center items-center py-16">
-        <div className="isSm:w-full">
-          <div className="text-center mb-4">
-            <p className="text-para">{activeStep + 1} of 3 </p>
+
+        <div className="my-0 mx-auto">
+          <div className="flex justify-center items-center">
+            <div className="isSm:w-full">
+              <div>
+                <div className="text-center mb-4">
+                  <p className="text-para text-lg isSm:text-xs">
+                    {activeStep + 1} of 3
+                  </p>
+                </div>
+                <div className="text-center">
+                  <h2 className="text-5xl uppercase font-semibold isSm:text-2xl">
+                    {getSteps()[activeStep]}
+                  </h2>
+                </div>
+              </div>
+              <div>{getStepContent(activeStep)}</div>
+            </div>
           </div>
-          <div className="uppercase text-3xl mb-8 text-center isSm:px-8">
-            <h2 className="isSm:text-4xl">{getSteps()[activeStep]} </h2>
-          </div>
-          <div>{getStepContent(activeStep)}</div>
         </div>
       </div>
     </div>

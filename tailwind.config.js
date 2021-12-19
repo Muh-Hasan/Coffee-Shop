@@ -17,6 +17,7 @@ module.exports = {
         isSm: { max: "640px" },
         isMd: { max: "778px" },
         isLg: { max: "900px" },
+        isLgMax: {max: "990px"},
         isXl: { max: "1034px" },
       },
     },
