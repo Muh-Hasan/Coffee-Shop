@@ -96,28 +96,28 @@ const Navbar: FC = () => {
         {size.sm ? null : (
           <>
             <div>
-              <p className="cursor-pointer">About</p>
+              <p className="cursor-pointer text-lg">About</p>
             </div>
             <div>
-              <p className="cursor-pointer">Coffee</p>
+              <p className="cursor-pointer text-lg">Coffee</p>
             </div>
             <div>
-              <p className="cursor-pointer">Subscriptions</p>
+              <p className="cursor-pointer text-lg">Subscriptions</p>
             </div>
             <div>
-              <p className="cursor-pointer">Blog</p>
+              <p className="cursor-pointer text-lg">Blog</p>
             </div>
             <div className="h-5 w-[0.1rem] bg-border" />
           </>
         )}
-        <div className="w-4 cursor-pointer">
+        <div className="w-5 cursor-pointer">
           <img
             src="/images/shopping-cart.png"
             alt="shopping-cart"
             className="w-full"
           />
         </div>
-        <div className="w-4 cursor-pointer">
+        <div className="w-5 cursor-pointer">
           <img src="/images/user.png" alt="user" className="w-full" />
         </div>
       </div>
