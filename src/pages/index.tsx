@@ -30,9 +30,12 @@ export default function Home() {
           <img src="/images/coffee-cup.png" alt="" className="w-96" />
         </div>
       </div>
+
       <div className="py-20">
         <div className="text-center pb-12 tracking-wide">
-          <h2 className="text-4xl uppercase">How it works</h2>
+          <h2 className="text-5xl font-semibold isSm:text-2xl uppercase">
+            How it works
+          </h2>
         </div>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="flex justify-around flex-wrap items-center gap-8">
@@ -45,8 +48,10 @@ export default function Home() {
                 />
               </div>
               <div>
-                <p className="font-medium text-xl leading-loose">Lorem Ipsum</p>
-                <p className="text-para leading-normal text-[15px]">
+                <h4 className="font-medium text-3xl isSm:text-lg isSm:mb-2 leading-loose">
+                  Lorem Ipsum
+                </h4>
+                <p className="text-para leading-normal text-lg isSm:text-[15px]">
                   Lorem ipsum dolor sit amet, consetetur sadipscing.
                 </p>
               </div>
@@ -60,8 +65,10 @@ export default function Home() {
                 />
               </div>
               <div>
-                <p className="font-medium text-xl leading-loose">Lorem Ipsum</p>
-                <p className="text-para leading-normal text-[15px]">
+                <h4 className="font-medium text-3xl isSm:text-lg isSm:mb-2 leading-loose">
+                  Lorem Ipsum
+                </h4>
+                <p className="text-para leading-normal text-lg isSm:text-[15px]">
                   Lorem ipsum dolor sit amet, consetetur sadipscing.
                 </p>
               </div>
@@ -75,8 +82,10 @@ export default function Home() {
                 />
               </div>
               <div>
-                <p className="font-medium text-xl leading-loose">Lorem Ipsum</p>
-                <p className="text-para leading-normal text-[15px]">
+                <h4 className="font-medium text-3xl  isSm:text-lg isSm:mb-2 leading-loose">
+                  Lorem Ipsum
+                </h4>
+                <p className="text-para leading-normal text-lg isSm:text-[15px]">
                   Lorem ipsum dolor sit amet, consetetur sadipscing.
                 </p>
               </div>
@@ -84,6 +93,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <div className="py-16 bg-image-coffee">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="pb-12">

@@ -97,7 +97,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center">
-          <p className="text-para text-sm isSm:text-xs">
+          <p className="text-para isSm:text-xs">
             <i>Copyright 2021 Lorem Ipsum. All rights reserved.</i>
           </p>
         </div>
