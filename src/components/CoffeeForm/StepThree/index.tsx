@@ -21,7 +21,6 @@ const StepThree: FC<Props> = ({ savedValues }) => {
           offenSend: yup.string().required("How often should we send it?"),
         })}
         onSubmit={values => {
-          console.log(values)
           savedValues[1]({
             ...savedValues[0],
             offenSend: values.offenSend,
@@ -118,10 +117,10 @@ const StepThree: FC<Props> = ({ savedValues }) => {
                     thereafter. You can cancel anytime.
                   </p>
                 </div>
-                <div className="text-center">
+                <div className="text-center isSm:px-8">
                   <button
                     type="submit"
-                    className={`h-12 w-44 capitalize bg-black text-white border-none cursor-pointer`}
+                    className={`h-12  w-44 isSm:w-full capitalize bg-black text-white border-none cursor-pointer`}
                     style={{ boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.2)" }}
                   >
                     start free trial
