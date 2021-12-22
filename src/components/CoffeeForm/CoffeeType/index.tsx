@@ -19,8 +19,6 @@ const CoffeeType: FC<Props> = ({
   quantity,
   imageSrc,
 }) => {
-  console.log(isSelected)
-
   return (
     <>
       {!isSelected ? (
@@ -35,7 +33,7 @@ const CoffeeType: FC<Props> = ({
                 <img
                   src={`/images/${imageSrc}`}
                   alt={coffeeType}
-                  className="w-8"
+                  className="isSm:w-8"
                 />
               </div>
               <div>

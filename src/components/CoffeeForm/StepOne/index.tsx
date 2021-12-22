@@ -41,7 +41,6 @@ const StepOne: FC<Props> = ({ savedValues, handleNext }) => {
           type: savedValues[0].type,
         }}
         onSubmit={values => {
-          console.log(values)
           savedValues[1]({
             ...savedValues[0],
             type: values.type,
